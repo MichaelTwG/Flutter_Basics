@@ -1,12 +1,12 @@
 # Flutter Project Structure and Setup
 
-## Introduction and Context
+## Introducción y Contexto
 En este proyecto configurarás tu entorno de desarrollo Flutter, crearás tu primera aplicación Flutter y explorarás la estructura de carpetas del proyecto. Obtendrás una comprensión clara de cómo inicia una app Flutter y cómo se organizan sus archivos — una base crucial para construir aplicaciones robustas.  
 También aprenderás a usar la **Flutter CLI** para tareas esenciales como ejecutar, depurar y gestionar dependencias.
 
 Este proyecto te prepara para un desarrollo de UI más avanzado asegurando que estés completamente cómodo navegando y gestionando un proyecto Flutter.
 
-## Learning Objectives
+## Objetivos de Aprendizaje
 Al finalizar este proyecto, serás capaz de:
 
 - Configurar un entorno de desarrollo Flutter funcional.  
@@ -17,7 +17,7 @@ Al finalizar este proyecto, serás capaz de:
 
 ---
 
-## Tasks
+## Tareas
 
 ### 0. Install Flutter and Set Up Environment  
 **mandatory**  
@@ -70,34 +70,34 @@ Escribe una breve explicación (3–5 oraciones) sobre el propósito de cada uno
 
 ---
 
-### Responses
+### Respuestas
 
-- The `lib/` folder is the **most important** folder in the project. It contains all of the Dart code, which defines the **user interface (UI)** and **business logic** of the application.  
+- La carpeta `lib/` es la **más importante** del proyecto. Contiene todo el código Dart, que define la **interfaz de usuario (UI)** y la **lógica de negocio** de la aplicación.  
 
-- The `main.dart` file is the entry point of the Flutter application. When you run the app with `flutter run`, the `main()` function inside this file is the first thing that gets executed.  
+- El archivo `main.dart` es el punto de entrada de la aplicación Flutter. Cuando ejecutas la app con `flutter run`, la función `main()` dentro de este archivo es lo primero que se ejecuta.  
 
-- The `pubspec.yaml` file is the heart of the project configuration. It defines critical metadata, dependencies, and also manages **assets** (images, fonts, etc.) used by the project.  
+- El archivo `pubspec.yaml` es el corazón de la configuración del proyecto. Define metadatos críticos, dependencias y también administra **assets** (imágenes, fuentes, etc.) usados por el proyecto.  
 
-- The `.dart_tool/` folder contains files generated automatically by Dart/Flutter to manage dependencies and internal configurations.  
+- La carpeta `.dart_tool/` contiene archivos generados automáticamente por Dart/Flutter para gestionar dependencias y configuraciones internas.  
 
-- The `.idea/` folder saves specific configurations of IDEs like IntelliJ and Android Studio (it doesn't affect the code).  
+- La carpeta `.idea/` guarda configuraciones específicas de IDEs como IntelliJ y Android Studio (no afecta el código).  
 
-- The `build/` folder contains the compiled files of the app and should not be modified manually. It is generally included in the `.gitignore` file.  
+- La carpeta `build/` contiene los archivos compilados de la aplicación y no debe modificarse manualmente. Generalmente está incluida en el archivo `.gitignore`.  
 
-- The `android/` and `ios/` folders contain the native "runner" projects for Android and iOS, respectively. When you build the app, Flutter compiles your Dart code and bundles it into a standard native application for each platform.  
+- Las carpetas `android/` y `ios/` contienen los proyectos nativos "runner" para Android y iOS, respectivamente. Cuando construyes la app, Flutter compila tu código Dart y lo empaqueta en una aplicación nativa estándar para cada plataforma.  
 
 ---
 
-#### Additional Data
+#### Información Adicional
 
-- You can use **Java** or **Kotlin** to create specific code for the **Android** version.  
-- You can create native code for **iOS** in **Swift** or **Objective-C**.  
-- If you don’t have folders like `android`, `ios`, `windows`, `linux`, `macos` or `web`, it means that you didn’t add those platforms. You can add them using a command line like:  
+- Puedes usar **Java** o **Kotlin** para crear código específico para la versión **Android**.  
+- Puedes crear código nativo para **iOS** en **Swift** o **Objective-C**.  
+- Si no tienes carpetas como `android`, `ios`, `windows`, `linux`, `macos` o `web`, significa que no agregaste esas plataformas. Puedes añadirlas usando un comando como:  
   ```bash
   flutter create --platforms=windows .
-````
+  ```
 
-And you can add more platforms to that argument separated by commas, for example:
+Y puedes agregar más plataformas separadas por comas, por ejemplo:
 
 ```bash
 flutter create --platforms=windows,linux,macos .
@@ -105,13 +105,48 @@ flutter create --platforms=windows,linux,macos .
 
 ---
 
-### 3. Add a Dependency to pubspec.yaml  
-**mandatory**  
-**Objetivo:** Aprender a usar paquetes de terceros en una app Flutter.  
+### 3. Add a Dependency to pubspec.yaml
+
+**mandatory**
+**Objetivo:** Aprender a usar paquetes de terceros en una app Flutter.
 
 **Instrucciones:**
-- Abre `pubspec.yaml`.  
-- Agrega la siguiente dependencia:  
+
+* Abre `pubspec.yaml`.
+* Agrega la siguiente dependencia:
+
   ```yaml
   cupertino_icons: ^1.0.6
   ```
+* Ejecuta en la terminal:
+
+  ```bash
+  flutter pub get
+  ```
+* Usa un icono de ese paquete, por ejemplo: `CupertinoIcons.heart` dentro del archivo `main.dart` para confirmar que está funcionando.
+
+**Resultado esperado:**
+
+* `flutter pub get` se ejecuta sin errores.
+* Tu app contiene un widget que usa `CupertinoIcons.heart`, por ejemplo:
+
+  ```dart
+  Icon(CupertinoIcons.heart)
+  ```
+
+---
+
+### 4. Modify and Rebuild the App
+
+**mandatory**
+**Objetivo:** Hacer un cambio simple en la UI para verificar el flujo de desarrollo y el comportamiento de reconstrucción.
+
+**Instrucciones:**
+
+* Abre `main.dart`.
+* Cambia el título del widget `MyApp` y actualiza el texto en la pantalla del contador para que diga:
+
+  > “You have pressed the button this many times:”
+* Usa **hot reload** o **hot restart** para ver los cambios.
+
+**Resultado esperado:** La app refleja el nuevo texto y título en la pantalla.
