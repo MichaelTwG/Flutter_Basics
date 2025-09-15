@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
       ),
       home: ProfilePage(),
     );
@@ -25,17 +25,17 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.black,
       body: Center(
         child: Center(
           child: Container(
             padding: const EdgeInsets.all(24.0),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.grey[900],
               borderRadius: BorderRadius.circular(16.0),
               boxShadow: const [
                 BoxShadow(
-                  color: Colors.black12,
+                  color: Colors.black54,
                   blurRadius: 10.0,
                   offset: Offset(0, 5),
                 )
@@ -48,18 +48,20 @@ class ProfilePage extends StatelessWidget {
                   backgroundImage: const AssetImage('assets/images/me.jpg'),
                   radius: 50,
                 ),
-                const Text(
+                SizedBox(height: 16),
+                Text(
                   'Michael Golenia',
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(226, 255, 255, 255)
                   ),
                 ),
-                const Text(
+                Text(
                   'Flutter Developer',
                   style: TextStyle(
                     fontSize: 18.0,
-                    color: Colors.grey,
+                    color: const Color.fromARGB(255, 255, 236, 158),
                   ),
                 ),
               ],
