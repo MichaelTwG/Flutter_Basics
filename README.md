@@ -1,118 +1,90 @@
-# Flutter Project Structure and Setup
+# Building UI with Widgets  
 
-## Introduction and Context
-En este proyecto configurarás tu entorno de desarrollo Flutter, crearás tu primera aplicación Flutter y explorarás la estructura de carpetas del proyecto. Obtendrás una comprensión clara de cómo inicia una app Flutter y cómo se organizan sus archivos — una base crucial para construir aplicaciones robustas.  
-También aprenderás a usar la **Flutter CLI** para tareas esenciales como ejecutar, depurar y gestionar dependencias.
+## 📖 Introducción y Contexto  
+En este proyecto aprenderás a construir interfaces de usuario estructuradas y con estilo visual utilizando el sistema de **widgets** de Flutter.  
+Las apps en Flutter están compuestas por widgets, que definen desde el layout hasta el estilo.  
+Comenzarás creando layouts usando widgets estructurales básicos, y luego los mejorarás con estilos, espaciado e imágenes.  
+También aprenderás a encapsular partes de tu UI en **widgets personalizados reutilizables** — un principio clave para el desarrollo escalable de aplicaciones.  
 
-Este proyecto te prepara para un desarrollo de UI más avanzado asegurando que estés completamente cómodo navegando y gestionando un proyecto Flutter.
-
-## Learning Objectives
-Al finalizar este proyecto, serás capaz de:
-
-- Configurar un entorno de desarrollo Flutter funcional.  
-- Crear y ejecutar un proyecto Flutter en un emulador o dispositivo.  
-- Identificar y explicar el propósito de los archivos y carpetas clave en un proyecto Flutter.  
-- Usar de forma efectiva las herramientas de línea de comandos de Flutter.  
-- Agregar dependencias a través de `pubspec.yaml` y entender cómo se gestionan los paquetes.  
+Este proyecto se enfoca en la composición de **stateless widgets** y fundamentos de UI, preparándote para trabajar más adelante con interactividad y estado.  
 
 ---
 
-## Tasks
+## 🎯 Objetivos de Aprendizaje  
+Al finalizar este proyecto serás capaz de:  
 
-### 0. Install Flutter and Set Up Environment  
+- Construir interfaces de usuario usando **stateless widgets**.  
+- Componer layouts complejos usando widgets estructurales y visuales.  
+- Aplicar estilos, padding y decoración a componentes de UI.  
+- Crear elementos de UI reutilizables con widgets personalizados.  
+
+---
+
+## 📝 Tareas  
+
+### 0️⃣ Build a Simple Profile Card Layout  
 **mandatory**  
-**Objetivo:** Instalar el SDK de Flutter y configurar tu entorno de desarrollo.  
+**Objetivo:** Usar widgets de layout y visuales para construir una estructura de UI limpia.  
 
-**Instrucciones:**
-- Sigue la guía oficial de instalación para tu sistema operativo.  
-- Configura Android Studio, VS Code, o tu IDE preferido con los plugins de Flutter y Dart.  
-- Ejecuta `flutter doctor` en tu terminal y resuelve todos los problemas reportados.  
+**Instrucciones:**  
+En tu proyecto Flutter, reemplaza el widget `MyHomePage` con un nuevo layout que muestre:  
+- Una imagen de perfil circular.  
+- Un nombre en texto en **negrita**.  
+- Una breve descripción debajo.  
 
-**Resultado esperado:** `flutter doctor` no muestra errores ni problemas pendientes.  
+Usa los siguientes widgets:  
+- `Column`, `Row`, `Padding`, `Container`, `Text`, `Image`, `CircleAvatar`.  
 
-**Command Line Tool:** `flutter doctor`  
+**Resultado esperado:**  
+Un layout centrado verticalmente con apariencia de tarjeta, que contenga imagen de perfil, nombre y descripción apilados en una columna.  
 
 ---
 
-### 1. Create a New Flutter Project  
+### 1️⃣ Apply Styling and Layout Customization  
 **mandatory**  
-**Objetivo:** Generar una nueva app Flutter usando la CLI y abrirla en tu IDE.  
+**Objetivo:** Mejorar la UI con estilos, padding y decoración de fondo.  
 
-**Instrucciones:**
-- Ejecuta `flutter create hello_flutter` en tu terminal.  
-- Abre la carpeta del proyecto en tu IDE.  
-- Ejecuta el proyecto en un emulador o dispositivo físico.  
+**Instrucciones:**  
+- Agrega padding alrededor de tu layout usando `Padding` y `EdgeInsets`.  
+- Aplica estilo al texto del nombre con `TextStyle`:  
+  - `fontSize` 20+  
+  - `fontWeight` bold  
+- Envuelve el contenedor principal en un `Container` y aplica:  
+  - Esquinas redondeadas usando `BoxDecoration`  
+  - Color de fondo  
+  - Sombra (opcional)  
 
-**Resultado esperado:** La app contador por defecto de Flutter se ejecuta correctamente en un emulador/dispositivo.  
-
-**Command Line Tool:** `flutter create`, `flutter run`  
+**Resultado esperado:**  
+El layout tiene espaciado consistente, un fondo estilizado tipo tarjeta y apariencia moderna.  
 
 ---
 
-### 2. Explore the Project Structure  
+### 2️⃣ Refactor into a Custom Widget  
 **mandatory**  
-**Objetivo:** Comprender el propósito de cada carpeta y archivo clave en un nuevo proyecto Flutter.  
+**Objetivo:** Encapsular parte de la UI en un widget reutilizable.  
 
-**Instrucciones:**
-En el proyecto `hello_flutter`, revisa los siguientes elementos:  
-- `lib/`  
-- `lib/main.dart`  
-- `pubspec.yaml`  
-- `android/` y `ios/`  
-- `.dart_tool/`, `.idea/` y `build/`  
+**Instrucciones:**  
+- Mueve el layout de la tarjeta de perfil a su propia clase `StatelessWidget` llamada `ProfileCard`.  
+- Reemplaza el layout en `MyHomePage` con una llamada a `ProfileCard()`.  
+- Agrega parámetros de constructor a `ProfileCard` para:  
+  - `String name`  
+  - `String description`  
+  - `String imageUrl`  
+- Usa estos parámetros para poblar la UI.  
 
-Escribe una breve explicación (3–5 oraciones) sobre el propósito de cada uno:  
-- ¿Qué es `main.dart` y cómo inicia la app?  
-- ¿Qué rol cumple `pubspec.yaml`?  
-- ¿Cuál es la diferencia entre `lib/` y `android/`?  
-
-**Resultado esperado:** Un documento escrito o bloque de comentarios en `main.dart` con explicaciones claras de cada parte.  
+**Resultado esperado:**  
+Un widget `ProfileCard` reutilizable que recibe datos personalizados y renderiza el mismo layout.  
 
 ---
 
-### Responses
-
-- The `lib/` folder is the **most important** folder in the project. It contains all of the Dart code, which defines the **user interface (UI)** and **business logic** of the application.  
-
-- The `main.dart` file is the entry point of the Flutter application. When you run the app with `flutter run`, the `main()` function inside this file is the first thing that gets executed.  
-
-- The `pubspec.yaml` file is the heart of the project configuration. It defines critical metadata, dependencies, and also manages **assets** (images, fonts, etc.) used by the project.  
-
-- The `.dart_tool/` folder contains files generated automatically by Dart/Flutter to manage dependencies and internal configurations.  
-
-- The `.idea/` folder saves specific configurations of IDEs like IntelliJ and Android Studio (it doesn't affect the code).  
-
-- The `build/` folder contains the compiled files of the app and should not be modified manually. It is generally included in the `.gitignore` file.  
-
-- The `android/` and `ios/` folders contain the native "runner" projects for Android and iOS, respectively. When you build the app, Flutter compiles your Dart code and bundles it into a standard native application for each platform.  
-
----
-
-#### Additional Data
-
-- You can use **Java** or **Kotlin** to create specific code for the **Android** version.  
-- You can create native code for **iOS** in **Swift** or **Objective-C**.  
-- If you don’t have folders like `android`, `ios`, `windows`, `linux`, `macos` or `web`, it means that you didn’t add those platforms. You can add them using a command line like:  
-  ```bash
-  flutter create --platforms=windows .
-````
-
-And you can add more platforms to that argument separated by commas, for example:
-
-```bash
-flutter create --platforms=windows,linux,macos .
-```
-
----
-
-### 3. Add a Dependency to pubspec.yaml  
+### 3️⃣ Display a List of ProfileCards  
 **mandatory**  
-**Objetivo:** Aprender a usar paquetes de terceros en una app Flutter.  
+**Objetivo:** Practicar composición de widgets reutilizando un widget en una lista.  
 
-**Instrucciones:**
-- Abre `pubspec.yaml`.  
-- Agrega la siguiente dependencia:  
-  ```yaml
-  cupertino_icons: ^1.0.6
-  ```
----
+**Instrucciones:**  
+- Reemplaza el body de `MyHomePage` con un `ListView`.  
+- Crea una lista de 3–5 widgets `ProfileCard`, cada uno con datos diferentes.  
+- Asegúrate de que el layout se pueda desplazar correctamente.  
+
+**Resultado esperado:**  
+Una lista vertical desplazable de widgets `ProfileCard`, cada uno con contenido único.
