@@ -49,27 +49,3 @@ Cada tema está organizado en **ramas (branches)** independientes.
    ```bash
    flutter run
    ```
-
----
-
-💡 **Tip:** Cada rama es independiente, así que puedes estudiar y modificar cada tema sin afectar los demás.
-
----
-
-## 🛠️ Flujo para Crear y Subir Tus Ramas
-
-1. Crea el repositorio en GitHub vacío llamado `flutter_basics`.  
-2. Clona el repositorio en tu PC.  
-3. Crea tu rama inicial para el primer proyecto:  
-   ```bash
-   git checkout -b flutter-project-structure-and-setup
-   ```
-
-4. Crea el proyecto con `flutter create`, trabaja en él y haz tus commits.
-5. Sube la rama:
-
-   ```bash
-   git push -u origin flutter-project-structure-and-setup
-   ```
-6. Repite los pasos para cada nuevo proyecto, creando nuevas ramas.
-7. Mantén `main` limpio, solo con el README que explica el repositorio.
